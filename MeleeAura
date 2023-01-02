@@ -24,10 +24,10 @@ local w = library:CreateWindow("Modified by firasthe2")
 local b = w:CreateFolder("Melee aura functions") 
 local credits = w:CreateFolder("Credits")
 
-credits:Label("Script modifier: firasthe2",{
-TextSize = 17;
-TextColor = Color3.fromRGB(0,255,0);
-BgColor = Color3.fromRGB(30,30,30);
+credits:Label("Modifier: firasthe2",{
+   TextSize = 17; -- Self Explaining
+   TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+   BgColor = Color3.fromRGB(30, 30, 30); -- Self Explaining
 })
 
 b:Button("Knife Aura",function()
@@ -57,7 +57,7 @@ b:Button("Baseball Bat Aura",function()
 local localPlayer = game:GetService("Players").LocalPlayer
 
 while true do
-    wait()
+    game:GetService("RunService").Stepped:Wait()
 spawn(function()
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Baseball Bat"),

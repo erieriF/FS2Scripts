@@ -27,7 +27,6 @@ b:Button("Knife Aura",function()
   
 
 while true do
-    wait()
 
 local args = {
     [1] = "Melee",
@@ -40,7 +39,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteEvents.RemoteFireMelee:FireServer(unpack(args))
-
+   game["Run Service"].Stepped:Wait()
 
 end
 
@@ -76,7 +75,7 @@ end)
 b:Button("Military Axe Aura",function()
     
 while true do
-    wait()
+    game:GetService("RunService").Stepped:Wait()
 spawn(function()
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Military Axe"),
@@ -102,7 +101,7 @@ end)
 b:Button("Katana Aura",function()
     
 while true do
-    wait()
+    game:GetService("RunService").Stepped:Wait()
 
 spawn(function()
 local args = {
@@ -129,7 +128,7 @@ end)
 b:Button("Energy Sword Aura",function()
     
 while true do
-    wait()
+    game:GetService("RunService").Stepped:Wait()
 spawn(function()
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Energy Sword"),

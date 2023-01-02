@@ -32,7 +32,7 @@ c:Button("Silent Aim", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/kinhey/scripts/main/silentaim.lua"))()
 end)
 
-c:Button("Rejoin Game (works in Public Servers)", function()
+c:Button("Rejoin Game (public only)", function()
     if #game.Players:GetPlayers() <= 1 then
        localPlayer:Kick("\nRejoining.")
        wait()

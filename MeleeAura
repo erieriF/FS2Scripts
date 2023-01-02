@@ -25,9 +25,9 @@ local b = w:CreateFolder("Melee aura functions")
 local credits = w:CreateFolder("Credits")
 
 credits:Label("Script modifier: firasthe2",{
-TextSize = 17,
-TextColor = Color3.fromRGB(0,255,0),
-BgColor = Color3.fromRGB(30,30,30)
+TextSize = 17;
+TextColor = Color3.fromRGB(0,255,0);
+BgColor = Color3.fromRGB(30,30,30);
 })
 
 b:Button("Knife Aura",function()

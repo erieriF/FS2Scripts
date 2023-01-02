@@ -26,13 +26,25 @@ local b = w:CreateFolder("Melee aura functions")
 local c = w:CreateFolder("Misc")
 
 c:Toggle("Silent Aim", function(bool)
-   on = false
-   
-   if bool == false then
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/kinhey/scripts/main/silentaim.lua"))()
-      else
-      error("Stopped")
-   end
+getgenv().on = false
+
+coroutine.wrap(function()
+   while getgenv().on == true do
+    game:GetService("RunService").Heartbeat:Wait()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kinhey/scripts/main/silentaim.lua"))()
+else
+break
+end
+end)
+
+if getgenv().on == false then
+getgenv().on == true
+else
+getgenv().on == false
+end
+
+
 end)
 
 b:Button("Knife Aura",function()

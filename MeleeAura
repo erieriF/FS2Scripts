@@ -22,13 +22,6 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloo
 local w = library:CreateWindow("Modified by firasthe2")
 
 local b = w:CreateFolder("Melee aura functions") 
-local credits = w:CreateFolder("Credits")
-
-credits:Label("Modifier: firasthe2",{
-   TextSize = 17; -- Self Explaining
-   TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
-   BgColor = Color3.fromRGB(30, 30, 30); -- Self Explaining
-})
 
 b:Button("Knife Aura",function()
   

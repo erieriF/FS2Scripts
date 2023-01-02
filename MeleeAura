@@ -1,21 +1,24 @@
 local localPlayer = game:GetService("Players").LocalPlayer
 
+PlaceId, JobId = game.PlaceId, game.JobId
+local TeleportService = game:GetService("TeleportService")
+
 local function getClosest()
-    local closestPlayer = nil
+    local closestZombie = nil
     local shortestDistance = math.huge
     
-    for i, v in pairs(game:GetService("Workspace").Zombies:GetChildren()) do
+    for _,v in pairs(game:GetService("Workspace").Zombies:GetChildren()) do
         if v:FindFirstChild("Zombie") and v.Zombie.Health ~= 0 and v:FindFirstChild("Torso") and v:FindFirstChild("Head") then
-            local magnitude = (v.Torso.Position - localPlayer.Character.Torso.Position).magnitude
+            local magnitude = (v.Torso.Position - localPlayer.Character.Torso.Position).Magnitude
 
             if magnitude < shortestDistance then
-                closestPlayer = v
+                closestZombie = v
                 shortestDistance = magnitude
             end
         end
     end
 
-    return closestPlayer
+    return closestZombie
 end
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
@@ -25,24 +28,18 @@ local b = w:CreateFolder("Melee aura functions")
 
 local c = w:CreateFolder("Misc")
 
-c:Toggle("Silent Aim", function(bool)
-getgenv().on = false
-
-coroutine.wrap(function()
-   while getgenv().on == true do
-    game:GetService("RunService").Heartbeat:Wait()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kinhey/scripts/main/silentaim.lua"))()
-end
+c:Button("Silent Aim", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/kinhey/scripts/main/silentaim.lua"))()
 end)
 
-if getgenv().on == false then
-getgenv().on == true
-else
-getgenv().on == false
-end
-
-
+c:Button("Rejoin Game (works in Public Servers)", function()
+    if #game.Players:GetPlayers() <= 1 then
+       localPlayer:Kick("\nRejoining.")
+       wait()
+       TeleportService:Teleport(PlaceId, localPlayer)
+       else
+           TeleportService:TeleportToPlaceInstance(PlaceId, JobId, localPlayer)
+    end
 end)
 
 b:Button("Knife Aura",function()

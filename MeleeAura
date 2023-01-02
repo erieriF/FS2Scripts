@@ -23,6 +23,18 @@ local w = library:CreateWindow("Modified by firasthe2")
 
 local b = w:CreateFolder("Melee aura functions") 
 
+local c = w:CreateFolder("Misc")
+
+c:Toggle("Silent Aim", function(bool)
+   on = false
+   
+   if bool == false then
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/kinhey/scripts/main/silentaim.lua"))()
+      else
+      error("Stopped")
+   end
+end)
+
 b:Button("Knife Aura",function()
   
 

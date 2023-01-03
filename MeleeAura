@@ -22,9 +22,9 @@ local function getClosest()
 end
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
-local w = library:CreateWindow("Modified by firasthe2")
+local w = library:CreateWindow("The Final Stand 2 Scripts")
 
-local b = w:CreateFolder("Melee aura functions") 
+local b = w:CreateFolder("Melee Weapon Auras") 
 
 local c = w:CreateFolder("Misc")
 
@@ -70,6 +70,7 @@ local localPlayer = game:GetService("Players").LocalPlayer
 while true do
     game:GetService("RunService").Stepped:Wait()
 spawn(function()
+if game.Players.Character:FindFirstChild("Baseball Bat") then
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Baseball Bat"),
     [2] = {
@@ -88,6 +89,26 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteEvents.RemoteFireMelee:FireServer(unpack(args))
+elseif localPlayer.Backpack:FindFirstChild("Baseball Bat") then
+local args2 = {
+    [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Baseball Bat"),
+    [2] = {
+        [1] = {
+            [1] = getClosest():FindFirstChild("Head"),
+            [2] = {
+                ["Critical"] = true,
+                ["OverDamage"] = true,
+                ["ActiveAnimation"] = "Over"
+            }
+        }
+    },
+    [3] = {
+        ["ActiveAnimation"] = "Over"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.RemoteFireMelee:FireServer(unpack(args2))
+end
 end)
 end
 end)

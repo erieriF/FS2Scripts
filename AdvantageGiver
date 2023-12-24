@@ -175,6 +175,30 @@ local function ChangeValues()
             end
         end
     end
+for _, v in pairs(Zombies:GetChildren()) do
+if v:FindFirstChild("Head") and v:FindFirstChildOfClass("Humanoid") and v.Head:FindFirstChild("HealthESP") == nil then
+local health = Instance.new("BillboardGUI", v)
+health.Name = "HealthESP"
+health.Size = UDim2.fromScale(8, 8)
+health.AlwaysOnTop = true
+local preview = Instance.new("TextLabel", health)
+preview.Name = "Health"
+preview.BackgroundTransparency = 1
+preview.TextScaled = true
+task.spawn(function()
+while task.wait(0.1) do
+if (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.8 then
+preview.TextColor3 = Color3.new(0, 1, 0)
+elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.5 and (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.5 then
+preview.TextColor3 = Color3.fromRGB(255, 75, 0)
+elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.2 then
+preview.TextColor3 = Color3.fromRGB(255, 0, 0)
+end
+preview.Text = v:FindFirstChildOfClass("Humanoid").Health
+end
+end)
+end
+end
     if HeadSize == true then
 		for _, v in pairs(Zombies:GetChildren()) do
 			if v:FindFirstChild("Head") and not v.Head:GetAttribute("OldSize") then

@@ -202,7 +202,7 @@ while task.wait(0.1) do
 if (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.8 then
 preview.TextColor3 = Color3.new(0, 1, 0)
 elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.5 then
-preview.TextColor3 = Color3.fromRGB(255, 0, 0)
+preview.TextColor3 = Color3.fromRGB(255, 75, 0)
 end
 preview.Text = math.floor(v:FindFirstChildOfClass("Humanoid").Health)
 end

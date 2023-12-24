@@ -184,6 +184,7 @@ name.AlwaysOnTop = true
 name.StudsOffsetWorldSpace = Vector3.new(0, 8, 0)
 local zombname = Instance.new("TextLabel",name)
 zombname.Text = v.Name
+zombname.TextScaled = true
 zombname.BackgroundTransparency = 1
 zombname.Size = UDim2.fromScale(1,1)
 zombname.TextColor3 = Color3.new(0, 1, 0)

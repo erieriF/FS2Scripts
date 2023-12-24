@@ -186,17 +186,14 @@ local preview = Instance.new("TextLabel", health)
 preview.Name = "Health"
 preview.BackgroundTransparency = 1
 preview.TextScaled = true
-preview.Size = UDim2.fromScale(1,1)
 task.spawn(function()
 while task.wait(0.1) do
 if (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.8 then
 preview.TextColor3 = Color3.new(0, 1, 0)
-elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.5 and (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.5 then
-preview.TextColor3 = Color3.fromRGB(255, 75, 0)
-elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.2 then
+elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.5 then
 preview.TextColor3 = Color3.fromRGB(255, 0, 0)
 end
-preview.Text = v:FindFirstChildOfClass("Humanoid").Health
+preview.Text = math.floor(v:FindFirstChildOfClass("Humanoid").Health)
 end
 end)
 end

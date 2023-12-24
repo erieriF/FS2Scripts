@@ -1,5 +1,3 @@
-game.Players.LocalPlayer:Kick("Access denied, ask fire#0623 for permission if you are blacklisted by mistake.")
-
 local Services = setmetatable({}, {
     __index = function(Self, Index)
         Self[Index] = game.GetService(game, Index)

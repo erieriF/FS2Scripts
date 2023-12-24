@@ -177,7 +177,16 @@ local function ChangeValues()
     end
 for _, v in pairs(Zombies:GetChildren()) do
 if v:FindFirstChild("Head") and v:FindFirstChildOfClass("Humanoid") and v.Head:FindFirstChild("HealthESP") == nil then
-
+local name = Instance.new("BillboardGui", v.Head)
+name.Name = "ZombieName"
+name.Size = UDim2.fromScale(10, 10)
+name.AlwaysOnTop = true
+name.StudsOffsetWorldSpace = Vector3.new(0, 5, 0)
+local zombname = Instance.new("TextLabel",name)
+zombname.Text = v.Name
+zombname.BackgroundTransparency = 1
+zombname.Size = UDim2.fromScale(1,1)
+zombname.TextColor3 = Color3.new(0, 1, 0)
 local health = Instance.new("BillboardGui", v.Head)
 health.Name = "HealthESP"
 health.Size = UDim2.fromScale(8, 8)
@@ -186,6 +195,7 @@ local preview = Instance.new("TextLabel", health)
 preview.Name = "Health"
 preview.BackgroundTransparency = 1
 preview.TextScaled = true
+preview.Size = UDim2.fromScale(1,1)
 task.spawn(function()
 while task.wait(0.1) do
 if (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.8 then

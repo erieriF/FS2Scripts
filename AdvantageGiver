@@ -176,18 +176,18 @@ local function ChangeValues()
         end
     end
 for _, v in pairs(Zombies:GetChildren()) do
-if v:FindFirstChild("Head") and v:FindFirstChildOfClass("Humanoid") and v.Head:FindFirstChild("HealthESP") == nil then
-local name = Instance.new("BillboardGui", v.Head)
+if v:FindFirstChild("Head") and v:FindFirstChildOfClass("Humanoid") and v.HumanoidRootPart:FindFirstChild("HealthESP") == nil then
+local name = Instance.new("BillboardGui", v.HumanoidRootPart)
 name.Name = "ZombieName"
 name.Size = UDim2.fromScale(10, 10)
 name.AlwaysOnTop = true
-name.StudsOffsetWorldSpace = Vector3.new(0, 5, 0)
+name.StudsOffsetWorldSpace = Vector3.new(0, 8, 0)
 local zombname = Instance.new("TextLabel",name)
 zombname.Text = v.Name
 zombname.BackgroundTransparency = 1
 zombname.Size = UDim2.fromScale(1,1)
 zombname.TextColor3 = Color3.new(0, 1, 0)
-local health = Instance.new("BillboardGui", v.Head)
+local health = Instance.new("BillboardGui", v.HumanoidRootPart)
 health.Name = "HealthESP"
 health.Size = UDim2.fromScale(8, 8)
 health.AlwaysOnTop = true

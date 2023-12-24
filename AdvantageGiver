@@ -178,7 +178,7 @@ local function ChangeValues()
 for _, v in pairs(Zombies:GetChildren()) do
 if v:FindFirstChild("Head") and v:FindFirstChildOfClass("Humanoid") and v.Head:FindFirstChild("HealthESP") == nil then
 
-local health = Instance.new("BillboardGui", v)
+local health = Instance.new("BillboardGui", v.Head)
 health.Name = "HealthESP"
 health.Size = UDim2.fromScale(8, 8)
 health.AlwaysOnTop = true

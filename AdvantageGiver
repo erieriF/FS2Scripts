@@ -22,7 +22,7 @@ local VoteSkip = Services.ReplicatedStorage.RemoteFunctions.VoteSkip
 local RemoteCritMelee = Services.ReplicatedStorage.RemoteEvents.RemoteCritMelee
 local RemoteFireMelee = Services.ReplicatedStorage.RemoteEvents.RemoteFireMelee
 local DamageRampUp = 50
-local HeadSize = false
+local HeadSize = true
 local AutoMelee = false
 local AutoVote = false
 local TeleportHead = false
@@ -32,7 +32,7 @@ local Switch = false
 local EnergySwordAvaible = false
 local DebounceSword = false
 local OldPos
-_G.HeadSize = Vector3new(5, 5, 5)
+_G.HeadSize = Vector3new(8, 8, 8)
 _G.Modification = {
     --AttackSpeed = 3;
     --MeleeAttackSpeed = huge;

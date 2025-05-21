@@ -7,8 +7,6 @@ local Services = setmetatable({}, {
 local require, pairs, huge, insert, sort, unpack, wait, tostring, Vector3new = require, pairs, math.huge, table.insert, table.sort, unpack, wait, tostring, Vector3.new
 local Player = Services.Players.LocalPlayer
 local Zombies = workspace.Zombies
-local Border = workspace.Map.Border
-local PlayerTeleport = Services.ReplicatedStorage.RemoteEvents.PlayerTeleport
 local RemoteCritMelee = Services.ReplicatedStorage.RemoteEvents.RemoteCritMelee
 local ModuleScripts = Services.ReplicatedStorage.ModuleScripts
 local RemoteFireMelee = Services.ReplicatedStorage.RemoteEvents.RemoteFireMelee
@@ -19,8 +17,6 @@ local OldRoll = RandomManager.Roll
 local OldGetValue = CharacterManager.GetValue
 local OldIsCrit = CharacterManager.IsCrit
 local VoteSkip = Services.ReplicatedStorage.RemoteFunctions.VoteSkip
-local RemoteCritMelee = Services.ReplicatedStorage.RemoteEvents.RemoteCritMelee
-local RemoteFireMelee = Services.ReplicatedStorage.RemoteEvents.RemoteFireMelee
 local DamageRampUp = 50
 local HeadSize = false
 local AutoMelee = false
@@ -146,6 +142,15 @@ local function TimeText()
         end
     end
 end
+local function GetMelees()
+    local list = {}
+    for _, v in pairs(Player.Character:GetChildren()) do
+        if v:IsA("Tool") and v:FindFirstChild("MeleeScript") then
+            insert(list, v)
+        end
+    end
+    return list
+end
 local function ChangeValues()
     TimeText()
 	if Player.Character and Player.Character:FindFirstChild("CharacterManager") then
@@ -154,10 +159,12 @@ local function ChangeValues()
     if AutoMelee == true and Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
         for _, v in pairs(Zombies:GetChildren()) do
             if v and v.FindFirstChild(v, "Head") and v.FindFirstChild(v, "Zombie") and v.Zombie.Health ~= 0 and (v.Head.Position - Player.Character.HumanoidRootPart.Position).Magnitude <= 25 then
-            	local Tool = Player.Character:FindFirstChild("Military Axe") or Player.Character:FindFirstChild("Katana") or Player.Character:FindFirstChild("Machete") or Player.Character:FindFirstChild("Baseball Bat") or Player.Character:FindFirstChild("Dual Sai") or Player.Character:FindFirstChild("Energy Sword") or Player.Character:FindFirstChild("Cutlass")
-                if Tool then
-                    RemoteFireMelee:FireServer(Tool, {})
-                    RemoteCritMelee:FireServer(Tool, true, {})
+            	local Tools = GetMelees()
+                if #Tools ~= 0 then
+                    for _, x in pairs(Tools) do
+                        RemoteFireMelee:FireServer(x, {})
+                        RemoteCritMelee:FireServer(x, true, {})
+                    end
                 else
                     RemoteFireMelee:FireServer("Melee", {})
                     RemoteCritMelee:FireServer("Melee", true, {})

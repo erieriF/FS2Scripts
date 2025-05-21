@@ -22,7 +22,7 @@ local VoteSkip = Services.ReplicatedStorage.RemoteFunctions.VoteSkip
 local RemoteCritMelee = Services.ReplicatedStorage.RemoteEvents.RemoteCritMelee
 local RemoteFireMelee = Services.ReplicatedStorage.RemoteEvents.RemoteFireMelee
 local DamageRampUp = 50
-local HeadSize = true
+local HeadSize = false
 local AutoMelee = false
 local AutoVote = false
 local TeleportHead = false
@@ -32,7 +32,7 @@ local Switch = false
 local EnergySwordAvaible = false
 local DebounceSword = false
 local OldPos
-_G.HeadSize = Vector3new(8, 8, 8)
+_G.HeadSize = Vector3new(5, 5, 5)
 _G.Modification = {
     --AttackSpeed = 3;
     --MeleeAttackSpeed = huge;
@@ -175,40 +175,6 @@ local function ChangeValues()
             end
         end
     end
-for _, v in pairs(Zombies:GetChildren()) do
-if v:FindFirstChild("Head") and v:FindFirstChildOfClass("Humanoid") and v.HumanoidRootPart:FindFirstChild("HealthESP") == nil then
-local name = Instance.new("BillboardGui", v.HumanoidRootPart)
-name.Name = "ZombieName"
-name.Size = UDim2.fromScale(10, 10)
-name.AlwaysOnTop = true
-name.StudsOffsetWorldSpace = Vector3.new(0, 8, 0)
-local zombname = Instance.new("TextLabel",name)
-zombname.Text = v.Name
-zombname.TextScaled = true
-zombname.BackgroundTransparency = 1
-zombname.Size = UDim2.fromScale(1,1)
-zombname.TextColor3 = Color3.new(0, 1, 0)
-local health = Instance.new("BillboardGui", v.HumanoidRootPart)
-health.Name = "HealthESP"
-health.Size = UDim2.fromScale(8, 8)
-health.AlwaysOnTop = true
-local preview = Instance.new("TextLabel", health)
-preview.Name = "Health"
-preview.BackgroundTransparency = 1
-preview.TextScaled = true
-preview.Size = UDim2.fromScale(1,1)
-task.spawn(function()
-while task.wait(0.1) do
-if (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) >= 0.8 then
-preview.TextColor3 = Color3.new(0, 1, 0)
-elseif (v:FindFirstChildOfClass("Humanoid").Health / v:FindFirstChildOfClass("Humanoid").MaxHealth) <= 0.5 then
-preview.TextColor3 = Color3.fromRGB(255, 75, 0)
-end
-preview.Text = math.floor(v:FindFirstChildOfClass("Humanoid").Health)
-end
-end)
-end
-end
     if HeadSize == true then
 		for _, v in pairs(Zombies:GetChildren()) do
 			if v:FindFirstChild("Head") and not v.Head:GetAttribute("OldSize") then

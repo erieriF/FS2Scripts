@@ -12,10 +12,6 @@ A script that gives you an advantage (lol)
 
 *created by vSRXc and Unknown*
 
-Last properly tested 2 years ago. Responds fine.
-
-Status: ***MOSTLY PATCHED***
-
 Features:
 * Increases critical hits.
 * Melee aura (now supports every melee weapon)

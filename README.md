@@ -1,6 +1,6 @@
 # Information
 
-These are scripts for [The Final Stand 2](https://www.roblox.com/games/133815151/) that I've created.
+These are scripts for [The Final Stand 2](https://www.roblox.com/games/133815151/) that I've created / collected.
 
 Some scripts may be outdated, broken or patched. Depends on what exploit you are using.
 
@@ -9,6 +9,8 @@ The creator of these scripts is not liable for any misuse or bans resulting from
 ## AdvantageGiver
 
 A script that gives you an advantage (lol)
+
+*created by vSRXc and Unknown*
 
 Last properly tested 2 years ago. Responds fine.
 

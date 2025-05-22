@@ -21,6 +21,7 @@ local DamageRampUp = 50
 local HeadSize = false
 local AutoMelee = false
 local AutoVote = false
+local Esp = false
 local TeleportHead = false
 local ReturnIndex = 5000
 local Autobackup = false
@@ -127,6 +128,8 @@ local function Input(Key, Chat)
     elseif Key.KeyCode == Enum.KeyCode.KeypadFive and not Chat then
         Autobackup = not Autobackup
         OldPos = Player.Character.HumanoidRootPart.CFrame
+    elseif Key.KeyCode == Enum.KeyCode.KeypadSix and not Chat then
+        Esp = not Esp
     end
 end
 local function TimeText()
@@ -190,6 +193,27 @@ local function ChangeValues()
 			end
 		end
 	end
+    if Esp == true then
+		for _, v in pairs(Zombies:GetChildren()) do
+			 if v and v.FindFirstChild(v, "Head") and v.FindFirstChild(v, "Zombie") and not v.Head:FindFirstChild("hPui") then
+                local gui = Instance.new("BillboardGui", v.Head)
+                gui.Name = "hPui"
+                gui.Adornee = v.Head
+                gui.AlwaysOnTop = true
+                gui.Size = UDim2.fromScale(4, 4)
+                gui.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
+                local hp = Instance.new("TextLabel", gui)
+                hp.Size = UDim2.fromScale(1, 1)
+                hp.TextColor3 = Color3.fromRGB(0, 255, 0)
+                hp.BackgroundTransparency = 1
+                hp.TextScaled = true
+                hp.Text = v.Zombie.Health
+                v.Zombie.HealthChanged:connect(function(x)
+                    if x <= 0 then gui:Destroy() else hp.Text = math.floor(x) end
+                end)
+			end
+		end
+    end
     for i, v in pairs(_G.Modification) do
         if Player.Character and Player.Character:FindFirstChildOfClass("Tool") and Player.Character:FindFirstChildOfClass("Tool"):FindFirstChild("CurrentValues") and Player.Character:FindFirstChildOfClass("Tool").CurrentValues:FindFirstChild(i) and Player.Character:FindFirstChildOfClass("Tool").CurrentValues[i].Value ~= v then
             Player.Character:FindFirstChildOfClass("Tool").CurrentValues[i].Value = v

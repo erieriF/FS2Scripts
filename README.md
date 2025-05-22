@@ -12,7 +12,7 @@ A script that gives you an advantage (lol)
 
 Last properly tested 2 years ago. Responds fine.
 
-PATCHED: MOSTLY
+Status: ***MOSTLY PATCHED***
 
 Features:
 * Increases critical hits.

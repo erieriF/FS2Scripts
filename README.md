@@ -4,7 +4,7 @@ These are scripts for [The Final Stand 2](https://www.roblox.com/games/133815151
 
 Some scripts may be outdated, broken or patched. Depends on what exploit you are using.
 
-The creator of this tool is not liable for any misuse or bans resulting from its use.
+The creator of these scripts is not liable for any misuse or bans resulting from its use.
 
 ## AdvantageGiver
 

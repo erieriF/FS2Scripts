@@ -7,4 +7,10 @@ These are old scripts for [The Final Stand 2](https://www.roblox.com/games/13381
 
 A script that gives you an advantage (lol)
 
-Increases critical hits.
+Features:
+* Increases critical hits.
+* Melee aura
+* Big head zombies
+* Insta ready up
+* Removes all spread / recoil (?)
+* Anti exploit kick

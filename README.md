@@ -22,6 +22,7 @@ Features:
 * Insta ready up
 * Removes all spread / recoil (?)
 * Anti exploit kick
+* ESP that shows zombie health
 
 ## Silent Aim
 

@@ -6,6 +6,7 @@ Some scripts may be outdated, broken or patched. Depends on what exploit you are
 
 The creator of these scripts is not liable for any misuse or bans resulting from its use.
 
+
 ## AdvantageGiver
 
 A script that gives you an advantage (lol)

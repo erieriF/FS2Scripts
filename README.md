@@ -21,3 +21,7 @@ Features:
 * Insta ready up
 * Removes all spread / recoil (?)
 * Anti exploit kick
+
+## Silent Aim
+
+-

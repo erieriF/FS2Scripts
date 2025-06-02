@@ -1,12 +1,10 @@
 # Information
 
-These are scripts for [The Final Stand 2](https://www.roblox.com/games/133815151/) that I've created / collected.
+These scripts are scripts for [The Final Stand 2](https://www.roblox.com/games/133815151/) that I personally created/collected.
 
-Some scripts may be outdated, broken or patched. Depends on what exploit you are using.
+Some of the scripts may be outdated, broken, or patched. It depends on the type of exploit you are using.
 
-The creator of these scripts is not liable for any misuse or bans resulting from its use.
-
-
+The author of these scripts is not responsible for any misuse or ban resulting from the use of the scripts.
 
 ## AdvantageGiver
 

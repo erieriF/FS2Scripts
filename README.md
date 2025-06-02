@@ -11,9 +11,8 @@ The creator of these scripts is not liable for any misuse or bans resulting from
 ## AdvantageGiver
 
 
-A script that gives you an advantage (lol)
-
-*created by vSRXc and Unknown*
+A script that gives you an advantage. (pretty straightforward)
+Created by Fire
 
 Features:
 * Increases critical hits.
